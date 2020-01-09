@@ -1,0 +1,27 @@
+{
+  "name": "timus-parser",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A tiny, fast parser for any JavaScript like language.",
+  "main": "dist/timus-parser.js",
+  "scripts": {
+    "build": "rollup -c",
+    "test": "node test/run.js"
+  },
+  "author": "Timus",
+  "license": "MIT",
+  "maintainers": [
+    {
+      "name": "Conrado Carvalho",
+      "email": "conrado@timus.app"
+    }
+  ],
+  "devDependencies": {
+    "rollup": "^1.28.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0"
+  },
+  "dependencies": {
+    "acorn": "^7.1.0"
+  }
+}

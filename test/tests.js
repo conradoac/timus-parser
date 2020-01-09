@@ -39,6 +39,7 @@ const _interface = parser.getLanguageSynonym('interface')
 const _public = parser.getLanguageSynonym('public')
 const _static = parser.getLanguageSynonym('static')
 const _function = parser.getLanguageSynonym('function')
+const _else = parser.getLanguageSynonym('else')
 
 // words length diff
 const objectDiff = _Object.length - 'Object'.length
@@ -74,6 +75,7 @@ const interfaceDiff = _interface.length - 'interface'.length
 const publicDiff = _public.length - 'public'.length
 const staticDiff = _static.length - 'static'.length
 const functionDiff = _function.length - 'function'.length
+const elseDiff = _else.length - 'else'.length
 
 if (typeof exports != "undefined") {
   var driver = require("./driver.js");
@@ -17659,402 +17661,402 @@ test(`${_if} (morning) (${_function}(){})`, {
     }
   }
 });
-///
-// test("if (morning) var x = 0;", {
-//   type: "Program",
-//   body: [
-//     {
-//       type: "IfStatement",
-//       test: {
-//         type: "Identifier",
-//         name: "morning",
-//         loc: {
-//           start: {
-//             line: 1,
-//             column: 4
-//           },
-//           end: {
-//             line: 1,
-//             column: 11
-//           }
-//         }
-//       },
-//       consequent: {
-//         type: "VariableDeclaration",
-//         declarations: [
-//           {
-//             type: "VariableDeclarator",
-//             id: {
-//               type: "Identifier",
-//               name: "x",
-//               loc: {
-//                 start: {
-//                   line: 1,
-//                   column: 17
-//                 },
-//                 end: {
-//                   line: 1,
-//                   column: 18
-//                 }
-//               }
-//             },
-//             init: {
-//               type: "Literal",
-//               value: 0,
-//               loc: {
-//                 start: {
-//                   line: 1,
-//                   column: 21
-//                 },
-//                 end: {
-//                   line: 1,
-//                   column: 22
-//                 }
-//               }
-//             },
-//             loc: {
-//               start: {
-//                 line: 1,
-//                 column: 17
-//               },
-//               end: {
-//                 line: 1,
-//                 column: 22
-//               }
-//             }
-//           }
-//         ],
-//         kind: "var",
-//         loc: {
-//           start: {
-//             line: 1,
-//             column: 13
-//           },
-//           end: {
-//             line: 1,
-//             column: 23
-//           }
-//         }
-//       },
-//       alternate: null,
-//       loc: {
-//         start: {
-//           line: 1,
-//           column: 0
-//         },
-//         end: {
-//           line: 1,
-//           column: 23
-//         }
-//       }
-//     }
-//   ],
-//   loc: {
-//     start: {
-//       line: 1,
-//       column: 0
-//     },
-//     end: {
-//       line: 1,
-//       column: 23
-//     }
-//   }
-// });
 
-// test("if (morning) function a(){}", {
-//   type: "Program",
-//   body: [
-//     {
-//       type: "IfStatement",
-//       test: {
-//         type: "Identifier",
-//         name: "morning",
-//         loc: {
-//           start: {
-//             line: 1,
-//             column: 4
-//           },
-//           end: {
-//             line: 1,
-//             column: 11
-//           }
-//         }
-//       },
-//       consequent: {
-//         type: "FunctionDeclaration",
-//         id: {
-//           type: "Identifier",
-//           name: "a",
-//           loc: {
-//             start: {
-//               line: 1,
-//               column: 22
-//             },
-//             end: {
-//               line: 1,
-//               column: 23
-//             }
-//           }
-//         },
-//         params: [],
-//         body: {
-//           type: "BlockStatement",
-//           body: [],
-//           loc: {
-//             start: {
-//               line: 1,
-//               column: 25
-//             },
-//             end: {
-//               line: 1,
-//               column: 27
-//             }
-//           }
-//         },
-//         loc: {
-//           start: {
-//             line: 1,
-//             column: 13
-//           },
-//           end: {
-//             line: 1,
-//             column: 27
-//           }
-//         }
-//       },
-//       alternate: null,
-//       loc: {
-//         start: {
-//           line: 1,
-//           column: 0
-//         },
-//         end: {
-//           line: 1,
-//           column: 27
-//         }
-//       }
-//     }
-//   ],
-//   loc: {
-//     start: {
-//       line: 1,
-//       column: 0
-//     },
-//     end: {
-//       line: 1,
-//       column: 27
-//     }
-//   }
-// });
+test(`${_if} (morning) ${_var} x = 0;`, {
+  type: "Program",
+  body: [
+    {
+      type: "IfStatement",
+      test: {
+        type: "Identifier",
+        name: "morning",
+        loc: {
+          start: {
+            line: 1,
+            column: 4 + ifDiff
+          },
+          end: {
+            line: 1,
+            column: 11 + ifDiff
+          }
+        }
+      },
+      consequent: {
+        type: "VariableDeclaration",
+        declarations: [
+          {
+            type: "VariableDeclarator",
+            id: {
+              type: "Identifier",
+              name: "x",
+              loc: {
+                start: {
+                  line: 1,
+                  column: 17 + ifDiff + varDiff
+                },
+                end: {
+                  line: 1,
+                  column: 18 + ifDiff + varDiff
+                }
+              }
+            },
+            init: {
+              type: "Literal",
+              value: 0,
+              loc: {
+                start: {
+                  line: 1,
+                  column: 21 + ifDiff + varDiff
+                },
+                end: {
+                  line: 1,
+                  column: 22 + ifDiff + varDiff
+                }
+              }
+            },
+            loc: {
+              start: {
+                line: 1,
+                column: 17 + ifDiff + varDiff
+              },
+              end: {
+                line: 1,
+                column: 22 + ifDiff + varDiff
+              }
+            }
+          }
+        ],
+        kind: "var",
+        loc: {
+          start: {
+            line: 1,
+            column: 13 + ifDiff
+          },
+          end: {
+            line: 1,
+            column: 23 + ifDiff + varDiff
+          }
+        }
+      },
+      alternate: null,
+      loc: {
+        start: {
+          line: 1,
+          column: 0
+        },
+        end: {
+          line: 1,
+          column: 23 + ifDiff + varDiff
+        }
+      }
+    }
+  ],
+  loc: {
+    start: {
+      line: 1,
+      column: 0
+    },
+    end: {
+      line: 1,
+      column: 23 + ifDiff + varDiff
+    }
+  }
+});
 
-// test("if (morning) goodMorning(); else goodDay()", {
-//   type: "Program",
-//   body: [
-//     {
-//       type: "IfStatement",
-//       test: {
-//         type: "Identifier",
-//         name: "morning",
-//         loc: {
-//           start: {
-//             line: 1,
-//             column: 4
-//           },
-//           end: {
-//             line: 1,
-//             column: 11
-//           }
-//         }
-//       },
-//       consequent: {
-//         type: "ExpressionStatement",
-//         expression: {
-//           type: "CallExpression",
-//           callee: {
-//             type: "Identifier",
-//             name: "goodMorning",
-//             loc: {
-//               start: {
-//                 line: 1,
-//                 column: 13
-//               },
-//               end: {
-//                 line: 1,
-//                 column: 24
-//               }
-//             }
-//           },
-//           arguments: [],
-//           loc: {
-//             start: {
-//               line: 1,
-//               column: 13
-//             },
-//             end: {
-//               line: 1,
-//               column: 26
-//             }
-//           }
-//         },
-//         loc: {
-//           start: {
-//             line: 1,
-//             column: 13
-//           },
-//           end: {
-//             line: 1,
-//             column: 27
-//           }
-//         }
-//       },
-//       alternate: {
-//         type: "ExpressionStatement",
-//         expression: {
-//           type: "CallExpression",
-//           callee: {
-//             type: "Identifier",
-//             name: "goodDay",
-//             loc: {
-//               start: {
-//                 line: 1,
-//                 column: 33
-//               },
-//               end: {
-//                 line: 1,
-//                 column: 40
-//               }
-//             }
-//           },
-//           arguments: [],
-//           loc: {
-//             start: {
-//               line: 1,
-//               column: 33
-//             },
-//             end: {
-//               line: 1,
-//               column: 42
-//             }
-//           }
-//         },
-//         loc: {
-//           start: {
-//             line: 1,
-//             column: 33
-//           },
-//           end: {
-//             line: 1,
-//             column: 42
-//           }
-//         }
-//       },
-//       loc: {
-//         start: {
-//           line: 1,
-//           column: 0
-//         },
-//         end: {
-//           line: 1,
-//           column: 42
-//         }
-//       }
-//     }
-//   ],
-//   loc: {
-//     start: {
-//       line: 1,
-//       column: 0
-//     },
-//     end: {
-//       line: 1,
-//       column: 42
-//     }
-//   }
-// });
+test(`${_if} (morning) ${_function} a(){}`, {
+  type: "Program",
+  body: [
+    {
+      type: "IfStatement",
+      test: {
+        type: "Identifier",
+        name: "morning",
+        loc: {
+          start: {
+            line: 1,
+            column: 4 + ifDiff
+          },
+          end: {
+            line: 1,
+            column: 11 + ifDiff
+          }
+        }
+      },
+      consequent: {
+        type: "FunctionDeclaration",
+        id: {
+          type: "Identifier",
+          name: "a",
+          loc: {
+            start: {
+              line: 1,
+              column: 22 + ifDiff + functionDiff
+            },
+            end: {
+              line: 1,
+              column: 23 + ifDiff + functionDiff
+            }
+          }
+        },
+        params: [],
+        body: {
+          type: "BlockStatement",
+          body: [],
+          loc: {
+            start: {
+              line: 1,
+              column: 25 + ifDiff + functionDiff
+            },
+            end: {
+              line: 1,
+              column: 27 + ifDiff + functionDiff
+            }
+          }
+        },
+        loc: {
+          start: {
+            line: 1,
+            column: 13 + ifDiff
+          },
+          end: {
+            line: 1,
+            column: 27 + ifDiff + functionDiff
+          }
+        }
+      },
+      alternate: null,
+      loc: {
+        start: {
+          line: 1,
+          column: 0
+        },
+        end: {
+          line: 1,
+          column: 27 + ifDiff + functionDiff
+        }
+      }
+    }
+  ],
+  loc: {
+    start: {
+      line: 1,
+      column: 0
+    },
+    end: {
+      line: 1,
+      column: 27 + ifDiff + functionDiff
+    }
+  }
+});
 
-// test("do keep(); while (true)", {
-//   type: "Program",
-//   body: [
-//     {
-//       type: "DoWhileStatement",
-//       body: {
-//         type: "ExpressionStatement",
-//         expression: {
-//           type: "CallExpression",
-//           callee: {
-//             type: "Identifier",
-//             name: "keep",
-//             loc: {
-//               start: {
-//                 line: 1,
-//                 column: 3
-//               },
-//               end: {
-//                 line: 1,
-//                 column: 7
-//               }
-//             }
-//           },
-//           arguments: [],
-//           loc: {
-//             start: {
-//               line: 1,
-//               column: 3
-//             },
-//             end: {
-//               line: 1,
-//               column: 9
-//             }
-//           }
-//         },
-//         loc: {
-//           start: {
-//             line: 1,
-//             column: 3
-//           },
-//           end: {
-//             line: 1,
-//             column: 10
-//           }
-//         }
-//       },
-//       test: {
-//         type: "Literal",
-//         value: true,
-//         loc: {
-//           start: {
-//             line: 1,
-//             column: 18
-//           },
-//           end: {
-//             line: 1,
-//             column: 22
-//           }
-//         }
-//       },
-//       loc: {
-//         start: {
-//           line: 1,
-//           column: 0
-//         },
-//         end: {
-//           line: 1,
-//           column: 23
-//         }
-//       }
-//     }
-//   ],
-//   loc: {
-//     start: {
-//       line: 1,
-//       column: 0
-//     },
-//     end: {
-//       line: 1,
-//       column: 23
-//     }
-//   }
-// });
+test(`${_if} (morning) goodMorning(); ${_else} goodDay()`, {
+  type: "Program",
+  body: [
+    {
+      type: "IfStatement",
+      test: {
+        type: "Identifier",
+        name: "morning",
+        loc: {
+          start: {
+            line: 1,
+            column: 4 + ifDiff
+          },
+          end: {
+            line: 1,
+            column: 11 + ifDiff
+          }
+        }
+      },
+      consequent: {
+        type: "ExpressionStatement",
+        expression: {
+          type: "CallExpression",
+          callee: {
+            type: "Identifier",
+            name: "goodMorning",
+            loc: {
+              start: {
+                line: 1,
+                column: 13 + ifDiff
+              },
+              end: {
+                line: 1,
+                column: 24 + ifDiff
+              }
+            }
+          },
+          arguments: [],
+          loc: {
+            start: {
+              line: 1,
+              column: 13 + ifDiff
+            },
+            end: {
+              line: 1,
+              column: 26 + ifDiff
+            }
+          }
+        },
+        loc: {
+          start: {
+            line: 1,
+            column: 13 + ifDiff
+          },
+          end: {
+            line: 1,
+            column: 27 + ifDiff
+          }
+        }
+      },
+      alternate: {
+        type: "ExpressionStatement",
+        expression: {
+          type: "CallExpression",
+          callee: {
+            type: "Identifier",
+            name: "goodDay",
+            loc: {
+              start: {
+                line: 1,
+                column: 33 + ifDiff + elseDiff
+              },
+              end: {
+                line: 1,
+                column: 40 + ifDiff + elseDiff
+              }
+            }
+          },
+          arguments: [],
+          loc: {
+            start: {
+              line: 1,
+              column: 33 + ifDiff + elseDiff
+            },
+            end: {
+              line: 1,
+              column: 42 + ifDiff + elseDiff
+            }
+          }
+        },
+        loc: {
+          start: {
+            line: 1,
+            column: 33 + ifDiff + elseDiff
+          },
+          end: {
+            line: 1,
+            column: 42 + ifDiff + elseDiff
+          }
+        }
+      },
+      loc: {
+        start: {
+          line: 1,
+          column: 0
+        },
+        end: {
+          line: 1,
+          column: 42 + ifDiff + elseDiff
+        }
+      }
+    }
+  ],
+  loc: {
+    start: {
+      line: 1,
+      column: 0
+    },
+    end: {
+      line: 1,
+      column: 42 + ifDiff + elseDiff
+    }
+  }
+});
+
+test(`${_do} keep(); ${_while} (${_true})`, {
+  type: "Program",
+  body: [
+    {
+      type: "DoWhileStatement",
+      body: {
+        type: "ExpressionStatement",
+        expression: {
+          type: "CallExpression",
+          callee: {
+            type: "Identifier",
+            name: "keep",
+            loc: {
+              start: {
+                line: 1,
+                column: 3 + doDiff
+              },
+              end: {
+                line: 1,
+                column: 7 + doDiff
+              }
+            }
+          },
+          arguments: [],
+          loc: {
+            start: {
+              line: 1,
+              column: 3 + doDiff
+            },
+            end: {
+              line: 1,
+              column: 9 + doDiff
+            }
+          }
+        },
+        loc: {
+          start: {
+            line: 1,
+            column: 3 + doDiff
+          },
+          end: {
+            line: 1,
+            column: 10 + doDiff
+          }
+        }
+      },
+      test: {
+        type: "Literal",
+        value: true,
+        loc: {
+          start: {
+            line: 1,
+            column: 18 + doDiff + whileDiff
+          },
+          end: {
+            line: 1,
+            column: 22 + doDiff + whileDiff + trueDiff
+          }
+        }
+      },
+      loc: {
+        start: {
+          line: 1,
+          column: 0
+        },
+        end: {
+          line: 1,
+          column: 23 + doDiff + whileDiff + trueDiff
+        }
+      }
+    }
+  ],
+  loc: {
+    start: {
+      line: 1,
+      column: 0
+    },
+    end: {
+      line: 1,
+      column: 23 + doDiff + whileDiff + trueDiff
+    }
+  }
+});
 
 // test("do keep(); while (true);", {
 //   type: "Program",

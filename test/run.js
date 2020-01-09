@@ -57,7 +57,15 @@ const lume = require('./languages/lume.json');
   }
 
   var stats, modes = {
-    Normal: {
+    // Normal: {
+    //   config: {
+    //     parse: (input, options) => {
+    //       const parser = new TimusParser(input, options);
+    //       return parser.parse();
+    //     }
+    //   }
+    // },
+    Lume: {
       config: {
         parse: (input, options) => {
           options.language = lume;
@@ -75,20 +83,15 @@ const lume = require('./languages/lume.json');
 
   group("Errors");
 
-  do {
-    driver.testState.language = null;
-    for (var name in modes) {
-      group(name);
-      var mode = modes[name];
-      stats = mode.stats = { testsRun: 0, failed: 0 };
-      var t0 = +new Date;
-      driver.runTests(mode.config, report);
-      mode.stats.duration = +new Date - t0;
-      groupEnd();
-    }
-    
-    driver.testState.language = languages.pop()
-  } while (languages.length)  
+  for (var name in modes) {
+    group(name);
+    var mode = modes[name];
+    stats = mode.stats = { testsRun: 0, failed: 0 };
+    var t0 = +new Date;
+    driver.runTests(mode.config, report);
+    mode.stats.duration = +new Date - t0;
+    groupEnd();
+  }
 
   groupEnd();
 

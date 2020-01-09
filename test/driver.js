@@ -61,10 +61,6 @@ exports.runTests = function (config, callback) {
   }
 };
 
-exports.testState = {
-  language: null
-}
-
 function ppJSON(v) { return v instanceof RegExp ? v.toString() : (typeof v == "bigint" ? v.toString() : JSON.stringify(v, null, 2)); }
 function addPath(str, pt) {
   if (str.charAt(str.length - 1) == ")")
